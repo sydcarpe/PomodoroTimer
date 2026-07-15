@@ -16,7 +16,7 @@ namespace TaskTracker
         public static int sessionsLeft; // default 0
         public static bool onBreak = false; // automatically set to false since you do not start on a break 
         public static System.Timers.Timer myTimer = new System.Timers.Timer();
-        
+
 
         public static void Main(string[] args)
         {
@@ -25,12 +25,12 @@ namespace TaskTracker
             //First session
             Console.WriteLine("Enter in the Session time (minutes) - ");
             string userInputSession = Console.ReadLine();
-            int userInputSesTime = Int32.Parse(userInputSession)* 60; //converting to minutes 
+            int userInputSesTime = Int32.Parse(userInputSession) * 60; //converting to minutes 
 
             //Break time var
             Console.WriteLine("Enter in the short break time - ");
             var userInputShortBreak = Console.ReadLine();
-            int userInputShort = Int32.Parse(userInputShortBreak) *60; //converting to minutes
+            int userInputShort = Int32.Parse(userInputShortBreak) * 60; //converting to minutes
             shortBreakTime = userInputShort;
 
 
@@ -56,6 +56,9 @@ namespace TaskTracker
         static void OnTimedEvent(object source, ElapsedEventArgs e)
         {
             //After x seconds this will all run...
+            int seconds = timeLeftinSession % 60;
+            int minutes = timeLeftinSession / 60;
+            string timeLeftDisplay = minutes + ":" + seconds;
 
             // if the break is false it will run session time 
             // if the break is true... it will run the break
@@ -70,34 +73,47 @@ namespace TaskTracker
 
                 else if (timeLeftinSession > 0)
                 {
+                    Console.Write($"\r" + timeLeftDisplay);
                     timeLeftinSession--; //down by the second
-                } 
+                }
                 else if (timeLeftinSession == 0)
                 {
                     sessionsLeft--;
                     onBreak = true;
                     shortBreakTime = unchangingBreakTime;
                     //playing a sound below
-                    Process.Start("afplay", "bellSound.mp3");
+                    Process.Start("afplay", "SynthChime9.mp3");
+                    if (sessionsLeft == 0)
+                    {
+                        Console.WriteLine("All done :)");
+                    }
+                    else
+                    {
+                        Console.WriteLine("Great job!! It's time for a break!");
+                    }
                 }
             }
             else if (onBreak) //if break is set to true do this
             {
-                if (shortBreakTime != 0)
+                int breakSeconds = shortBreakTime % 60;
+                int breakMinutes = shortBreakTime / 60;
+                string breakDisplay = breakMinutes + ":" + breakSeconds;
+                 if (shortBreakTime != 0)
                 {
-                    Console.WriteLine("ON BREAK! " + shortBreakTime);
+                    Console.Write($"\r" + breakDisplay);
                     shortBreakTime--;
                 }
                 else if (shortBreakTime == 0 && sessionsLeft != 0)
                 {
-                    Console.WriteLine("Break over! You have " + sessionsLeft + " sessions left!" );
+                    Process.Start("afplay", "PowerUp2.mp3");
+                    Console.WriteLine("Break over! You have " + sessionsLeft + " sessions left!");
                     onBreak = false;
                     if (sessionsLeft != 0)
                     {
                         timeLeftinSession = unchangingSessionTime;
                     }
                 }
-                else if(sessionsLeft == 0)
+                else if (sessionsLeft == 0)
                 {
                     Console.WriteLine("Pomodoro over! Type q to restart");
                     myTimer.Stop();

@@ -95,7 +95,7 @@ namespace PomodoroTimer
                         shortBreakTime = unchangingBreakTime;
                         longBreakTime = unchangingLongBreak;
                         //playing a sound below
-                        Process.Start("afplay", "SynthChime9.mp3");
+                        Process.Start("mpg123", "SynthChime9.mp3");
                         Console.ResetColor();
 
                         //if no sessions say it is time for long break
@@ -126,13 +126,30 @@ namespace PomodoroTimer
                         Console.Write($"\r" + breakDisplay);
                         shortBreakTime--;
                     }
-                    else if (shortBreakTime == 0 && sessionsLeft != 0)
+                    else if (shortBreakTime <= 0 && sessionsLeft > 0)
                     {
-                        Process.Start("afplay", "PowerUp2.mp3");
+                        Console.Write("/r0:00");
                         Console.ResetColor();
+
+                        //changing timer BEFORE audio plays 
+                        onBreak = false; 
+                        timeLeftinSession = unchangingSessionTime;
+
+                        Console.WriteLine();
                         Console.WriteLine("Break over! You have " + sessionsLeft + " sessions left!");
                         Console.WriteLine("Sessions Completed so Far: " + numofTotalSessions);
-                        onBreak = false;
+
+
+                        try
+                        {
+                            Process.Start("mpg123", "PowerUp2.mp3");
+                        } catch (Exception ex)
+                        {
+                            Console.WriteLine("Timer going, sound failed" );
+                            Console.WriteLine("Sond error: " + ex.Message);
+                        }
+                        
+                        
                         if (sessionsLeft != 0)
                         {
                             timeLeftinSession = unchangingSessionTime;
@@ -154,7 +171,7 @@ namespace PomodoroTimer
                     }
                     else
                     {
-                        Process.Start("afplay", "finishedPomo.mp3");
+                        Process.Start("mpg123", "finishedPomo.mp3");
                         Console.ResetColor();
                         Console.WriteLine("Long break is over! Sessions will begin again automatically");
                         Console.WriteLine("Sessions Completed so Far: " + numofTotalSessions);

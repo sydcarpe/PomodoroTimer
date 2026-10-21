@@ -1,15 +1,16 @@
 {
   "version": 2,
-  "dgSpecHash": "EkOtTWTNPOk=",
+  "dgSpecHash": "dVDDTQyGX/8=",
   "success": true,
-  "projectFilePath": "/Users/scarpenter/Desktop/PomodoroTimer/PomodoroTimer.csproj",
+  "projectFilePath": "/home/sec/Documents/Code/PomodoroTimer/PomodoroTimer.csproj",
   "expectedPackageFiles": [
-    "/Users/scarpenter/.nuget/packages/naudio/2.3.0/naudio.2.3.0.nupkg.sha512",
-    "/Users/scarpenter/.nuget/packages/naudio.asio/2.3.0/naudio.asio.2.3.0.nupkg.sha512",
-    "/Users/scarpenter/.nuget/packages/naudio.core/2.3.0/naudio.core.2.3.0.nupkg.sha512",
-    "/Users/scarpenter/.nuget/packages/naudio.midi/2.3.0/naudio.midi.2.3.0.nupkg.sha512",
-    "/Users/scarpenter/.nuget/packages/naudio.wasapi/2.3.0/naudio.wasapi.2.3.0.nupkg.sha512",
-    "/Users/scarpenter/.nuget/packages/naudio.winmm/2.3.0/naudio.winmm.2.3.0.nupkg.sha512"
+    "/home/sec/.nuget/packages/naudio/2.3.0/naudio.2.3.0.nupkg.sha512",
+    "/home/sec/.nuget/packages/naudio.asio/2.3.0/naudio.asio.2.3.0.nupkg.sha512",
+    "/home/sec/.nuget/packages/naudio.core/2.3.0/naudio.core.2.3.0.nupkg.sha512",
+    "/home/sec/.nuget/packages/naudio.midi/2.3.0/naudio.midi.2.3.0.nupkg.sha512",
+    "/home/sec/.nuget/packages/naudio.wasapi/2.3.0/naudio.wasapi.2.3.0.nupkg.sha512",
+    "/home/sec/.nuget/packages/naudio.winmm/2.3.0/naudio.winmm.2.3.0.nupkg.sha512",
+    "/home/sec/.nuget/packages/netcoreaudio/2.0.1/netcoreaudio.2.0.1.nupkg.sha512"
   ],
   "logs": []
 }

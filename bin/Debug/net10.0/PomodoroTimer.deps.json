@@ -8,7 +8,8 @@
     ".NETCoreApp,Version=v10.0": {
       "PomodoroTimer/1.0.0": {
         "dependencies": {
-          "NAudio": "2.3.0"
+          "NAudio": "2.3.0",
+          "NetCoreAudio": "2.0.1"
         },
         "runtime": {
           "PomodoroTimer.dll": {}
@@ -80,6 +81,14 @@
             "fileVersion": "2.3.0.0"
           }
         }
+      },
+      "NetCoreAudio/2.0.1": {
+        "runtime": {
+          "lib/netstandard2.1/NetCoreAudio.dll": {
+            "assemblyVersion": "2.0.1.0",
+            "fileVersion": "2.0.1.0"
+          }
+        }
       }
     }
   },
@@ -130,6 +139,13 @@
       "sha512": "sha512-5G1dRjsZm50T3luyuqcmI2BSvj3K4ZJaD/x776/0Epj88qOsOryDZG40+MufwIk1UFJSFWhRobBqtJYFc8Ss4g==",
       "path": "naudio.winmm/2.3.0",
       "hashPath": "naudio.winmm.2.3.0.nupkg.sha512"
+    },
+    "NetCoreAudio/2.0.1": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-S9i/e+z9gzwXG0vY+qpF21bKEmmCE7LmqPtNM0grgE/P5vNHjUnpJdHwdb62wW/Ypa38RqqLErGkdRKxFfDGng==",
+      "path": "netcoreaudio/2.0.1",
+      "hashPath": "netcoreaudio.2.0.1.nupkg.sha512"
     }
   }
 }
